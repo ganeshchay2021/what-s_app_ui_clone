@@ -31,12 +31,15 @@ class UiHelper {
 
   static Text customText({
     required String text,
+    int? maxLine,
     required double height,
     size,
     FontWeight? fontwght,
     Color? color,
   }) {
     return Text(
+      maxLines: maxLine,
+      overflow: TextOverflow.ellipsis,
       text,
       style: TextStyle(
         fontSize: size,
@@ -57,7 +60,7 @@ class UiHelper {
     return SizedBox(
       width: width,
       child: DropdownButton<String>(
-        isExpanded:width !=null? false: true,
+        isExpanded: width != null ? false : true,
         value: dropdownInitialValue,
         icon: widget,
         elevation: 16,
